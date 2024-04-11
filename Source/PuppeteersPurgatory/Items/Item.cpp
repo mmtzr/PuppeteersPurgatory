@@ -15,12 +15,14 @@ void AItem::BeginPlay()
 {
 	Super::BeginPlay();
 	UWorld* World = GetWorld();
+	SetActorLocation(FVector(2200.f, 740.f, 130.f));
+	SetActorRotation(FRotator(0.f, 45.f, 0.f)); // double in degrees
 
-	SetActorLocation(FVector(0.f, 0.f, 50.f));
 	FVector Location = GetActorLocation();
 	FVector Forward = GetActorForwardVector();
 
 	DRAW_RED_SPHERE(Location);
+	DRAW_RED_VECTOR(Location, Location + Forward * 100.f);
 	
 }
 

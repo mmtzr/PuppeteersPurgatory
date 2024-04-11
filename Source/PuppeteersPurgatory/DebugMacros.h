@@ -10,3 +10,6 @@
 			DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Red, true, -1.f, 0, 1.f);
 #define DRAW_RED_POINT(Location) if (GetWorld()) \
 			DrawDebugPoint(GetWorld(), Location, 15.f, FColor::Red, true);
+#define DRAW_RED_VECTOR(StartLocation, EndLocation) if (GetWorld()) \
+			DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Red, true, -1.f, 0, 1.f); \
+			DrawDebugPoint(GetWorld(), EndLocation, 15.f, FColor::Red, true);
