@@ -14,15 +14,7 @@ AItem::AItem()
 void AItem::BeginPlay()
 {
 	Super::BeginPlay();
-	UWorld* World = GetWorld();
-	SetActorLocation(FVector(2200.f, 740.f, 130.f));
-	SetActorRotation(FRotator(0.f, 45.f, 0.f)); // double in degrees
-
-	FVector Location = GetActorLocation();
-	FVector Forward = GetActorForwardVector();
-
-	DRAW_RED_SPHERE(Location);
-	DRAW_RED_VECTOR(Location, Location + Forward * 100.f);
+	SetActorLocation(FVector(430.f, 920.f, 280.f));
 	
 }
 
@@ -30,6 +22,10 @@ void AItem::BeginPlay()
 void AItem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	RunningTime += DeltaTime;
+	DeltaZ = AmpZ * FMath::Sin(RunningTime * PerZ);
+	AddActorWorldOffset(FVector(0.f, 0.f, DeltaZ));
+	DRAW_RED_SPHERE_PF(GetActorLocation());
+	DRAW_RED_VECTOR_PF(GetActorLocation(), GetActorLocation() + GetActorForwardVector() * 100.f);
 }
 
