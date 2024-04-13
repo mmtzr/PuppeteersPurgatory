@@ -1,6 +1,9 @@
 # Visual Studio 2015 user specific files
 .vs/
 
+# Content will be zipped for backup
+Content*
+
 # Compiled Object files
 *.slo
 *.lo
