@@ -2,7 +2,7 @@
 .vs/
 
 # Content will be zipped for backup
-Content/*
+Content*
 
 # Compiled Object files
 *.slo

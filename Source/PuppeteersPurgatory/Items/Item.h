@@ -20,15 +20,22 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	// VARIABLES
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Sine Parameters")
 		float AmpZ = 0.25f; // amplitude (rad)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sine Parameters")
 		float PerZ = 5.f; // period (rad)
+	// FUNCTIONS
+	UFUNCTION(BlueprintPure)
+		float TransformedSine();	
+	UFUNCTION(BlueprintPure)
+		float TransformedCosine();
 private:
 	// Track game running time
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	float RunningTime;
-	float DeltaZ;
-
+		float RunningTime;
+	// add a static mesh component to the blueprint
+	UPROPERTY(VisibleAnywhere)
+		UStaticMeshComponent* ItemMesh;
 
 };
