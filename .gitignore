@@ -1,7 +1,10 @@
 # Visual Studio 2015 user specific files
 .vs/
+
 #Content is zipped
 Content/*
+Content/MSPresets/*
+
 # Compiled Object files
 *.slo
 *.lo
