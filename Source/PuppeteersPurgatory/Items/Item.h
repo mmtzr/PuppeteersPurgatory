@@ -36,6 +36,6 @@ private:
 		float RunningTime;
 	// add a static mesh component to the blueprint
 	UPROPERTY(VisibleAnywhere)
-		UStaticMeshComponent* ItemMesh;
+		TObjectPtr<UStaticMeshComponent> ItemMesh;
 
 };
