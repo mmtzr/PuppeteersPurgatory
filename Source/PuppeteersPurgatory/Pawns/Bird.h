@@ -4,8 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "Components/CapsuleComponent.h"
 #include "Bird.generated.h"
+
+//forward declarations
+class UCapsuleComponent;
+class USkeletalMeshComponent;
 
 UCLASS()
 class PUPPETEERSPURGATORY_API ABird : public APawn
@@ -29,5 +32,8 @@ protected:
 private:
 	// Capsule pointer
 	UPROPERTY(VisibleAnywhere)
-	TObjectPtr<UCapsuleComponent> Capsule;
+		TObjectPtr<UCapsuleComponent> Capsule;
+	// Skeletal Mesh pointer
+	UPROPERTY(VisibleAnywhere)
+		TObjectPtr<USkeletalMeshComponent> SK_Bird;
 };
