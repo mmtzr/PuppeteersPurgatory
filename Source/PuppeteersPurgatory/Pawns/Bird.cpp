@@ -18,6 +18,9 @@ ABird::ABird()
 	//Bird Skeletal Mesh
 	SK_Bird = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Bird SkMesh"));
 	SK_Bird->SetupAttachment(GetRootComponent());
+
+	//Set as first player
+	AutoPossessPlayer = EAutoReceiveInput::Player0;
 }
 
 // Called when the game starts or when spawned
@@ -25,6 +28,14 @@ void ABird::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void ABird::MoveForward(float Value)
+{
+	if (Controller && (Value != 0.f)) {
+		FVector Forward = GetActorForwardVector();
+		AddMovementInput(Forward, Value);
+	}
 }
 
 // Called every frame
@@ -38,6 +49,8 @@ void ABird::Tick(float DeltaTime)
 void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	PlayerInputComponent->BindAxis(FName("MoveForward"), this, &ABird::MoveForward);
 
 }
 
